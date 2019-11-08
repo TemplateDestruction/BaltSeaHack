@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'kotlinx-serialization'
+
+android {
+    def globalConfiguration = rootProject.ext
+
+    compileSdkVersion 29
+    buildToolsVersion '29.0.1'
+
+    defaultConfig {
+        applicationId "xyz.tusion.baltseahack_androidapp"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_ENDPOINT", '"http://app.nrboom.com/api/"')
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+androidExtensions {
+    experimental = true
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.androidXappcompat"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintlayout"
+    implementation "com.google.android.material:material:$rootProject.ext.materialComponents"
+
+    implementation 'androidx.core:core-ktx:1.2.0-beta01'
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.2.0-rc01"
+    implementation "androidx.navigation:navigation-ui-ktx:2.2.0-rc01"
+
+    // lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.lifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.ext.lifecycleVersion"
+
+    // rx
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.ext.rxKotlinVerrsion"
+
+    // binding
+    implementation "com.jakewharton.rxrelay2:rxrelay:$rootProject.ext.rxRelayVersion"
+    implementation "com.jakewharton.rxbinding2:rxbinding-kotlin:$rootProject.ext.rxBindingVersion"
+    implementation "com.jakewharton.rxbinding3:rxbinding-swiperefreshlayout:$rootProject.ext.swipeRefreshLayoutRxBinding"
+
+    //internet connection
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
+    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.0.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.13.1'
+    implementation 'org.immutables:gson:2.7.5'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.11.0"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    //outline textview
+    implementation 'com.github.iamBedant:OutlineTextView:1.0.5'
+}

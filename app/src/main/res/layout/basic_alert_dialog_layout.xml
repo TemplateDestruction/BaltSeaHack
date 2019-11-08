@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/alert_dialog_color">
+
+
+    <com.iambedant.text.OutlineTextView
+        android:id="@+id/message_alert_dialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:textStyle="bold"
+        android:text="message"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_alert_dialog"
+        app:outlineColor="@color/col_black"
+        app:outlineWidth="0.5" />
+
+    <com.iambedant.text.OutlineTextView
+        android:id="@+id/title_alert_dialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:text="TextView"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:outlineColor="@color/col_black"
+        app:outlineWidth="1.0" />
+
+    <com.iambedant.text.OutlineTextView
+        android:id="@+id/ok_alert_dialog"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="ok"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message_alert_dialog"
+        app:outlineColor="@color/col_black"
+        app:outlineWidth="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
