@@ -3,6 +3,8 @@
     package="xyz.tusion.baltseahack_androidapp">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-feature android:name="android.hardware.nfc" />
 
     <application android:allowBackup="true"
 
@@ -26,6 +28,8 @@
         <activity android:name=".presentation.main.MainActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".presentation.screener.ScreenerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentation.teacher.TeacherActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"

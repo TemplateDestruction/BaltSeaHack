@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/screener_graph" app:startDestination="@id/firstQuestionFrag">
+            android:id="@+id/screener_graph" app:startDestination="@id/chooseRole">
 
     <fragment android:id="@+id/firstQuestionFrag"
               android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag1"
@@ -15,7 +15,11 @@
               android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag3"
               android:label="ThirdQuestionFrag">
     </fragment>
-<!--    <fragment android:id="@+id/thirdQuestionFrag"-->
+    <fragment
+        android:id="@+id/chooseRole"
+        android:name="xyz.tusion.baltseahack_androidapp.presentation.main.ChooseRole"
+        android:label="ChooseRole" />
+    <!--    <fragment android:id="@+id/thirdQuestionFrag"-->
 <!--              android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag3"-->
 <!--              android:label="ThirdQuestionFrag">-->
 <!--        <action android:id="@+id/action_thirdQuestionFrag_to_fourthQuestionFrag"-->
