@@ -31,4 +31,7 @@
     <dimen name="text_20">20sp</dimen>
     <dimen name="text_22">22sp</dimen>
     <dimen name="text_24">24sp</dimen>
+
+    <dimen name="profile_screen_qr_size">138dp</dimen>
+
 </resources>
