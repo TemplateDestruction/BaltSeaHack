@@ -13,9 +13,17 @@
             android:icon="@drawable/ic_map_black_24dp"
             android:title="Карта">
         </item>
+        <item android:id="@+id/mySectionsFragment"
+            android:icon="@drawable/ic_sections_black_24dp"
+            android:title="Мои секции">
+        </item>
         <item android:id="@+id/calendarFragment"
             android:icon="@drawable/ic_calendar_black_24dp"
             android:title="Календарь">
+        </item>
+        <item android:id="@+id/scanQrFragment"
+            android:icon="@drawable/ic_scaner_black_24dp"
+            android:title="Сканер">
         </item>
     </group>
 

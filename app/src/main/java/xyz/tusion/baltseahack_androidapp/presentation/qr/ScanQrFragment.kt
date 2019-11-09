@@ -11,6 +11,7 @@ import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentIntegrator.forSupportFragment
 import xyz.tusion.baltseahack_androidapp.App
 import xyz.tusion.baltseahack_androidapp.R
+import java.lang.Exception
 
 class ScanQrFragment : Fragment() {
     companion object {
@@ -33,16 +34,20 @@ class ScanQrFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-        if (result != null) {
-            App.showMessage(result.contents)
-            findNavController().navigate(
-                R.id.action_scanQrFragment_to_secondFragment,
-                Bundle().apply {
-                    putString(SCAN_QR_CONTENT_CODE, result.contents)
-                }
-            )
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
+        try {
+            if (result != null) {
+                App.showMessage(result.contents)
+                findNavController().navigate(
+                    R.id.action_scanQrFragment_to_secondFragment,
+                    Bundle().apply {
+                        putString(SCAN_QR_CONTENT_CODE, result.contents)
+                    }
+                )
+            } else {
+                super.onActivityResult(requestCode, resultCode, data)
+            }
+        } catch (e: Exception) {
+            findNavController().popBackStack()
         }
     }
 }

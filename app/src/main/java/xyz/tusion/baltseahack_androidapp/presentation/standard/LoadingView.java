@@ -1,4 +1,4 @@
-package xyz.tusion.baltseahack_androidapp.presentation.map.standard;
+package xyz.tusion.baltseahack_androidapp.presentation.standard;
 
 public interface LoadingView {
 

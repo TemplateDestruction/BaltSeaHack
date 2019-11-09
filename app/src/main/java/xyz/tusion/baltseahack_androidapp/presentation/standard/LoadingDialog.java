@@ -1,4 +1,4 @@
-package xyz.tusion.baltseahack_androidapp.presentation.map.standard;
+package xyz.tusion.baltseahack_androidapp.presentation.standard;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
