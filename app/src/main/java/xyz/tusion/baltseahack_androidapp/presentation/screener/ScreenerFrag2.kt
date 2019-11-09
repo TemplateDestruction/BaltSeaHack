@@ -35,7 +35,7 @@ class ScreenerFrag2 : BaseFragment() {
 
 
     fun toThirdQuestion() {
-//        navController.navigate(R.id.thirdQuestionFrag)
+        navController.navigate(R.id.thirdQuestionFrag)
     }
 
 //    fun fillScreenerDocument(max: Int?, min: Int?) {

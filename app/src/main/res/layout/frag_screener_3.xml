@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/frag_screener_3_iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="backToPreviousFrag"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/frag_screener_3_tv_page"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/frag_screener_3_tv_page"
+        app:srcCompat="@drawable/ic_arrow" />
+
+    <TextView
+        android:id="@+id/screener_second_theme"
+        style="@style/Text.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Увлечения"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/screener_third" />
+
+    <TextView
+        android:id="@+id/frag_screener_3_tv_page"
+        style="@style/Text.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="24dp"
+        android:text="3/7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/frag_screener_3_tv_next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/screener_second_theme">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <CheckBox
+                    android:id="@+id/sports_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="Спорт"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toStartOf="@+id/relations_screener_seventh_frag"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/history_screener_seventh_frag"
+                    app:layout_constraintTop_toBottomOf="@+id/facts_screener_seventh_frag" />
+
+                <CheckBox
+                    android:id="@+id/studying_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="Экономика"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toStartOf="@+id/it_screener_seventh_frag"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/books_screener_seventh_frag" />
+
+                <CheckBox
+                    android:id="@+id/auto_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="Политика"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/animals_screener_seventh_frag"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/music_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="Музыка"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/it_screener_seventh_frag"
+                    app:layout_constraintTop_toBottomOf="@+id/auto_screener_seventh_frag" />
+
+                <CheckBox
+                    android:id="@+id/facts_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="Вышивание"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toStartOf="@+id/comedy_screener_seventh_frag"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/studying_screener_seventh_frag" />
+
+                <CheckBox
+                    android:id="@+id/comedy_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="Актерское мастерство"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/facts_screener_seventh_frag"
+                    app:layout_constraintTop_toBottomOf="@+id/music_screener_seventh_frag" />
+
+                <CheckBox
+                    android:id="@+id/social_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="Блоггинг"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/beauty_screener_seventh_frag"
+                    app:layout_constraintTop_toBottomOf="@+id/relations_screener_seventh_frag" />
+
+                <CheckBox
+                    android:id="@+id/history_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="История"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toStartOf="@+id/sports_screener_seventh_frag"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/facts_screener_seventh_frag" />
+
+                <CheckBox
+                    android:id="@+id/animals_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="Танцы"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toStartOf="@+id/auto_screener_seventh_frag"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/books_screener_seventh_frag"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/beauty_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="Режиссура"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toStartOf="@+id/social_screener_seventh_frag"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/history_screener_seventh_frag" />
+
+                <CheckBox
+                    android:id="@+id/relations_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="Военная подготовка"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/sports_screener_seventh_frag"
+                    app:layout_constraintTop_toBottomOf="@+id/comedy_screener_seventh_frag" />
+
+                <CheckBox
+                    android:id="@+id/books_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:padding="8dp"
+                    android:text="Ораторское искусство"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toStartOf="@+id/animals_screener_seventh_frag"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/it_screener_seventh_frag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/checkbox_background"
+                    android:fontFamily="@font/proxima_nova_reg"
+                    android:minWidth="48dp"
+                    android:padding="8dp"
+                    android:text="IT"
+                    android:textAlignment="center"
+                    android:textColor="@color/col_white"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintEnd_toStartOf="@+id/music_screener_seventh_frag"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/studying_screener_seventh_frag"
+                    app:layout_constraintTop_toBottomOf="@+id/animals_screener_seventh_frag" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/screener_third"
+        style="@style/Text.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:alpha="0.6"
+        android:text="Анкета"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frag_screener_3_tv_page" />
+
+    <TextView
+        android:id="@+id/frag_screener_3_tv_next"
+        style="@style/Text.Bold"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
+        android:gravity="center"
+        android:text="@string/next"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

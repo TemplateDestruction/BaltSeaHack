@@ -11,6 +11,10 @@
               android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag2"
               android:label="SecondQuestionFrag">
     </fragment>
+    <fragment android:id="@+id/thirdQuestionFrag"
+              android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag3"
+              android:label="ThirdQuestionFrag">
+    </fragment>
 <!--    <fragment android:id="@+id/thirdQuestionFrag"-->
 <!--              android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag3"-->
 <!--              android:label="ThirdQuestionFrag">-->
