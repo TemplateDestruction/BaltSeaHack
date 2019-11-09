@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Balt Sea Hack - Android App</string>
+    <string name="next">Далее</string>
+    <string name="screener">Анкета</string>
 </resources>

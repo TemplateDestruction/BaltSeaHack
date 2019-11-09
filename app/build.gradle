@@ -89,6 +89,8 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
+    implementation 'com.github.Cielsk:clearable-edittext:0.0.5'
+
     //outline textview
     implementation 'com.github.iamBedant:OutlineTextView:1.0.5'
 }

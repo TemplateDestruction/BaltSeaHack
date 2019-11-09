@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/background"
+        app:layout_constraintBottom_toTopOf="@+id/next_first_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_screener_theme">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.cielyang.android.clearableedittext.ClearableEditText
+                android:id="@+id/name"
+                style="@style/ClearableEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="40dp"
+                android:hint="Имя"
+                android:imeOptions="actionNext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.cielyang.android.clearableedittext.ClearableEditText
+                android:id="@+id/second_name"
+                style="@style/ClearableEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:hint="Фамилия"
+                android:imeOptions="actionNext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+
+            <com.cielyang.android.clearableedittext.ClearableEditText
+                android:id="@+id/otchestvo"
+                style="@style/ClearableEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:hint="Отчество"
+                android:imeOptions="actionNext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/second_name" />
+
+            <com.cielyang.android.clearableedittext.ClearableEditText
+                android:id="@+id/frag_change_email_current_email_2"
+                style="@style/ClearableEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="80dp"
+                android:hint="Возраст"
+                android:imeOptions="actionNext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otchestvo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+    <TextView
+        android:id="@+id/frag_screener_1_tv_page"
+        style="@style/Text.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="24dp"
+        android:text="1/7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/first_screener_theme"
+        style="@style/Text.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Основные данные"
+        android:textSize="@dimen/text_18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/screener_first" />
+
+
+    <TextView
+        android:id="@+id/screener_first"
+        style="@style/Text.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:alpha="0.6"
+        android:text="@string/screener"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frag_screener_1_tv_page" />
+
+    <TextView
+        android:id="@+id/next_first_question"
+        style="@style/Text.Bold"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
+        android:gravity="center"
+        android:text="@string/next"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

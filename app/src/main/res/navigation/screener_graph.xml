@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/screener_graph" app:startDestination="@id/firstQuestionFrag">
+
+    <fragment android:id="@+id/firstQuestionFrag"
+              android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag1"
+              android:label="FirstQuestionFrag">
+    </fragment>
+    <fragment android:id="@+id/secondQuestionFrag"
+              android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag2"
+              android:label="SecondQuestionFrag">
+    </fragment>
+<!--    <fragment android:id="@+id/thirdQuestionFrag"-->
+<!--              android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag3"-->
+<!--              android:label="ThirdQuestionFrag">-->
+<!--        <action android:id="@+id/action_thirdQuestionFrag_to_fourthQuestionFrag"-->
+<!--                app:destination="@id/fourthQuestionFrag"/>-->
+<!--    </fragment>-->
+<!--    <fragment android:id="@+id/fourthQuestionFrag"-->
+<!--              android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.FourthQuestionFrag"-->
+<!--              android:label="FourthQuestionFrag">-->
+<!--        <action android:id="@+id/action_fourthQuestionFrag_to_fifthQuestionFrag"-->
+<!--                app:destination="@id/fifthQuestionFrag"/>-->
+<!--    </fragment>-->
+<!--    <fragment android:id="@+id/fifthQuestionFrag"-->
+<!--              android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag5"-->
+<!--              android:label="FifthQuestionFrag">-->
+<!--        <action android:id="@+id/action_fifthQuestionFrag_to_sixthQuestionFrag"-->
+<!--                app:destination="@id/sixthQuestionFrag"/>-->
+<!--    </fragment>-->
+<!--    <fragment android:id="@+id/sixthQuestionFrag"-->
+<!--              android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag6"-->
+<!--              android:label="SixthQuestionFrag">-->
+<!--        <action android:id="@+id/action_sixthQuestionFrag_to_seventhQuestionFrag"-->
+<!--                app:destination="@id/seventhQuestionFrag"/>-->
+<!--    </fragment>-->
+<!--    <fragment android:id="@+id/seventhQuestionFrag"-->
+<!--              android:name="xyz.tusion.baltseahack_androidapp.presentation.screener.ScreenerFrag7"-->
+<!--              android:label="SeventhQuestionFrag"/>-->
+</navigation>

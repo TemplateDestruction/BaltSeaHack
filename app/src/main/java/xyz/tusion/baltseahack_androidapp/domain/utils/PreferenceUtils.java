@@ -18,6 +18,7 @@ public final class PreferenceUtils {
     private static final String LOG_STATE = "log_state";
     private static final String EMAIL = "email";
     private static final String CONFIRMATION_CODE = "confirmation_code";
+    private static final String AGE = "age";
 
     private static SharedPreferences preferences;
 
@@ -51,6 +52,17 @@ public final class PreferenceUtils {
                 .edit()
                 .putString(EMAIL, email)
                 .apply(); // commit
+    }
+
+    public static void saveAge(@NonNull Integer age) {
+        preferences
+                .edit()
+                .putInt(AGE, age)
+                .apply(); // commit
+    }
+
+    public static Integer getAGE() {
+        return preferences.getInt(AGE, 0);
     }
 
     public static String getEmail() {
