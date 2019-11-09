@@ -71,7 +71,7 @@ public final class ServerApiFactory {
     @NonNull
     private static OkHttpClient buildClient() {
         return new OkHttpClient.Builder()
-                .addInterceptor(ApiKeyInterceptor.create())
+//                .addInterceptor(ApiKeyInterceptor.create())
                 .addInterceptor(LoggingInterceptor.create())
                 .build();
     }
