@@ -12,12 +12,12 @@ class App : Application() {
   companion object {
     @SuppressLint("StaticFieldLeak")
     var sContext: Context? = null
+
+    fun showMessage(message: String) {
+      Toast.makeText(sContext, message, Toast.LENGTH_SHORT).show()
+    }
   }
   var appBinds = CompositeDisposable()
-
-  fun showMessage(message: String) {
-    Toast.makeText(sContext, message, Toast.LENGTH_SHORT).show()
-  }
 
   //test change
   override fun onCreate() {

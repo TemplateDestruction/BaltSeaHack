@@ -93,4 +93,8 @@ dependencies {
 
     //outline textview
     implementation 'com.github.iamBedant:OutlineTextView:1.0.5'
+
+    // Qr code
+    implementation "com.journeyapps:zxing-android-embedded:$rootProject.ext.qrCodeScannerVersion"
+    implementation "com.google.zxing:core:3.3.3"
 }

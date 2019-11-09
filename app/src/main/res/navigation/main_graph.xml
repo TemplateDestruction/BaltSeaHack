@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/scanQrFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -10,9 +10,16 @@
         <action
             android:id="@+id/action_mainFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_scanQrFragment"
+            app:destination="@id/scanQrFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="xyz.tusion.baltseahack_androidapp.presentation.main.SecondFragment"
         android:label="SecondFragment" />
+    <fragment
+        android:id="@+id/scanQrFragment"
+        android:name="xyz.tusion.baltseahack_androidapp.presentation.qr.ScanQrFragment"
+        android:label="ScanQrFragment" />
 </navigation>

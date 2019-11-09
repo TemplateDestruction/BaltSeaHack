@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="xyz.tusion.baltseahack_androidapp">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="xyz.tusion.baltseahack_androidapp">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -26,5 +27,9 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".presentation.screener.ScreenerActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="screenOrientation"/>
     </application>
 </manifest>

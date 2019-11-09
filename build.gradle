@@ -67,5 +67,7 @@ project.ext {
     rxBindingVersion = "2.1.1"
     swipeRefreshLayoutRxBinding = "3.0.0-alpha2"
 
+    qrCodeScannerVersion = "3.6.0"
+
     mpChartsVersion = "3.1.0"
 }
