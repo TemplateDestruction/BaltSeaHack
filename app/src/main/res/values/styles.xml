@@ -20,20 +20,20 @@
         <item name="android:backgroundTint">@color/col_white</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/col_white</item>
-        <item name="android:textColorHint">@color/col_hint</item>
+        <item name="android:textColorHint">@color/col_white</item>
         <item name="clearIconDrawWhenFocused">false</item>
         <item name="clearIconDrawable">@drawable/ic_btn_delete</item>
         <item name="android:layout_marginStart">64dp</item>
         <item name="android:layout_marginEnd">64dp</item>
-        <item name="colorAccent">@color/col_accent</item>
+        <item name="colorAccent">@color/col_white</item>
         <item name="android:theme">@style/ClearableEditTextStyle</item>
     </style>
 
     <style name="ButtonStyle" parent="Widget.MaterialComponents.Button.UnelevatedButton">
-        <item name="android:backgroundTint">#6DFF002A</item>
+        <item name="android:backgroundTint">#8f94fb</item>
         <item name="android:textColor">@color/col_white</item>
         <item name="android:textSize">@dimen/text_14</item>
-        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:fontFamily">@font/proxima_nova_reg</item>
         <item name="colorAccent">@color/col_white</item>
         <item name="android:minHeight">64dp</item>
         <item name="cornerRadius">2dp</item>
@@ -49,7 +49,7 @@
 
     <style name="Text">
         <item name="android:fontFamily">@font/proxima_nova_reg</item>
-        <item name="android:textColor">@color/col_white</item>
+        <item name="android:textColor">@color/text_color</item>
         <item name="android:textSize">24sp</item>
     </style>
 
@@ -59,6 +59,12 @@
 
     <style name="Text.Bold">
         <item name="android:fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="Text.Bold.Screener">
+        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:textColor">@color/col_white</item>
     </style>
 
 </resources>

@@ -6,7 +6,15 @@
     <color name="light_red">#FF1717</color>
 
 
-    <color name="background">#0E0E0E</color>
+    <color name="background">#ffffff</color>
+    <color name="accent">#4e54c8</color>
+    <color name="center">#6a6fde</color>
+    <color name="light">#8f94fb</color>
+    <color name="light60">#608f94fb</color>
+    <color name="light20">#208f94fb</color>
+    <color name="text_color">#333333</color>
+
+
     <color name="col_white">#FFFFFF</color>
     <color name="col_hint">#66FFFFFF</color>
     <color name="col_accent">#99FF0000</color>

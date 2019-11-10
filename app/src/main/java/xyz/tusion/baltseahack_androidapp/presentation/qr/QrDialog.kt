@@ -31,7 +31,7 @@ class QrDialog : DialogFragment() {
         val view = inflater.inflate(R.layout.dialog_qr, container, false)
         view.findViewById<View>(R.id.close).setOnClickListener { dialog!!.dismiss() }
 
-        var qrId = arguments?.getString("userId")!!
+        var qrId = arguments?.getString("eventId")!!
 
         QRCodeGenerator.generateFromString(
             qrId,
