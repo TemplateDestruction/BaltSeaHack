@@ -30,7 +30,7 @@ class MyEventFragment : BaseFragment(R.layout.frag_my_event) {
             val newFragment = QrDialog()
 
             val bundle = Bundle()
-            bundle.putString("eventId", "ID_4444194783")
+            bundle.putString("eventId", "10")
 
             newFragment.arguments = bundle
             newFragment.show(ft, "dialog")

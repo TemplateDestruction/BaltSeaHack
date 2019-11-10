@@ -12,9 +12,9 @@ class SplashActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-//        startActivity(Intent(this, ScreenerActivity::class.java))
+        startActivity(Intent(this, ScreenerActivity::class.java))
 //    startActivity(Intent(this, BottomNavAct::class.java))
-    startActivity(Intent(this, MainActivity2::class.java))
+//    startActivity(Intent(this, MainActivity2::class.java))
 
 
 
