@@ -18,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".presentation.SplashActivity"
             android:noHistory="true"
@@ -43,6 +44,7 @@
             android:screenOrientation="portrait"
             tools:replace="screenOrientation" />
         <activity android:name=".presentation.main.MainActivity2" />
+        <activity android:name=".presentation.ui.BottomNavAct" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
