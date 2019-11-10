@@ -23,6 +23,8 @@ import xyz.tusion.baltseahack_androidapp.domain.utils.PreferenceUtils
 import java.util.concurrent.TimeUnit
 
 
+
+
 @SuppressLint("ValidFragment")
 class QrDialog : DialogFragment() {
 
@@ -50,25 +52,26 @@ class QrDialog : DialogFragment() {
             .subscribe({
                 qr_image.setImageBitmap(it)
                 qr_id.text = qrId
+                RepositoryProvider
+                    .getJsonRepository()
+                    .getCountByEventId("10")
+                    .delay(5000, TimeUnit.MILLISECONDS)
+                    .subscribe({
+                        Toast.makeText(requireContext(), "Toast", Toast.LENGTH_SHORT).show()
+                        if (it > PreferenceUtils.getAGE()) {
+                            DialogUtils.showDialog(
+                                requireContext(),
+                                "Уведомление",
+                                "Ваш ученик отметился! Текущее количество отметившихся: $it"
+                            )
+                            isNotChecked = false
+                        }
+                    }, {
+                    })
             }, {})
-        while (isNotChecked) {
-            RepositoryProvider
-                .getJsonRepository()
-                .getCountByEventId("10")
-                .delay(3000, TimeUnit.MILLISECONDS)
-                .subscribe({
-                    Toast.makeText(requireContext(), "Toast", Toast.LENGTH_SHORT).show()
-                    if (it > PreferenceUtils.getAGE()) {
-                        DialogUtils.showDialog(
-                            requireContext(),
-                            "Уведомление",
-                            "Ваш ученик отметился! Текущее количество отметившихся: $it"
-                        )
-                        isNotChecked = false
-                    }
-                }, {
-                })
-        }
+
+
+
 
         return view
     }
