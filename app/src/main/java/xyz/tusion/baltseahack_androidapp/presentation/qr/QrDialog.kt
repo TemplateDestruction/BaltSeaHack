@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.dialog_add_users.*
+import kotlinx.android.synthetic.main.dialog_qr.*
 
 import xyz.tusion.baltseahack_androidapp.R
 import xyz.tusion.baltseahack_androidapp.domain.QRCodeGenerator
@@ -28,7 +28,7 @@ class QrDialog : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.dialog_add_users, container, false)
+        val view = inflater.inflate(R.layout.dialog_qr, container, false)
         view.findViewById<View>(R.id.close).setOnClickListener { dialog!!.dismiss() }
 
         var qrId = arguments?.getString("userId")!!
