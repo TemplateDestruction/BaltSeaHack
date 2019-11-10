@@ -4,22 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_offer"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
-    android:backgroundTint="@color/opacity20"
+    android:layout_height="40dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    android:elevation="0dp"
+    android:background="@drawable/visitor_item_bg"
     app:cardCornerRadius="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/opacity20"
+        android:background="@android:color/transparent"
         android:orientation="vertical">
 
 
         <TextView
             android:id="@+id/visitor_number"
             style="@style/Text"
+            android:textSize="14sp"
+            android:textColor="@color/gray_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -31,7 +34,9 @@
 
         <TextView
             android:id="@+id/visitor_name"
+            android:textSize="14sp"
             style="@style/Text"
+            android:textColor="@color/gray_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -48,7 +53,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:padding="16dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_polygon"/>
+            android:src="@drawable/ic_right_arrow"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

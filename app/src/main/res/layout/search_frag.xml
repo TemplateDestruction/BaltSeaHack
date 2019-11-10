@@ -103,10 +103,8 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchBySkills_searchFragment"
-        app:layout_constraintVertical_bias="0.537"
         tools:listitem="@layout/string_item"></xyz.tusion.baltseahack_androidapp.presentation.base.EmptyRecyclerView>
 
     <Spinner

@@ -14,7 +14,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="8dp"
-        android:text="Посещяющий"
+        android:text="Посещающий"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/teacher"
         app:layout_constraintEnd_toEndOf="parent"

@@ -13,6 +13,9 @@
     <color name="light60">#608f94fb</color>
     <color name="light20">#208f94fb</color>
     <color name="text_color">#333333</color>
+    <color name="gray_text">#898995</color>
+
+    <color name="light_gray_back">#E5E5E5</color>
 
 
     <color name="col_white">#FFFFFF</color>

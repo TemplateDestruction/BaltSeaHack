@@ -26,10 +26,14 @@ class VisitorDetailsFragment: BaseFragment(R.layout.frag_visitor_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        details_back.setOnClickListener {
+        back_word_2.setOnClickListener {
+            navController.popBackStack()
+        }
+        back_arrow_2.setOnClickListener {
             navController.popBackStack()
         }
         arguments?.getParcelable<Visitor>("visitor")
+        details_name.text = arguments?.getParcelable<Visitor>("visitor")?.name
         initRecyclerView()
     }
 
@@ -93,23 +97,41 @@ class SkillsListAdapter(
 }
 
 
-val listOfSkills = listOf<Skill>(
-    Skill("Выносливость", 14),
-    Skill("Актерское мастерсво", 4),
-    Skill("Коммуникабельность", 99),
-    Skill("Выносливость", 14),
-    Skill("Актерское мастерсво", 4),
-    Skill("Коммуникабельность", 99),
-    Skill("Выносливость", 14),
-    Skill("Актерское мастерсво", 4),
-    Skill("Коммуникабельность", 99),
-    Skill("Выносливость", 14),
-    Skill("Актерское мастерсво", 4),
-    Skill("Коммуникабельность", 99),
-    Skill("Выносливость", 14),
-    Skill("Актерское мастерсво", 4),
-    Skill("Коммуникабельность", 99),
-    Skill("Выносливость", 14),
-    Skill("Актерское мастерсво", 4),
-    Skill("Коммуникабельность", 99)
+val listOfSkills = listOf(
+            Skill("Логика", 2),
+            Skill("Коммуникативные навыки", 5),
+            Skill("Целеустремлённость", 0),
+            Skill("Самообладание", 0),
+            Skill("Внимательность к деталям", 9),
+            Skill("Тайм - менеджмент", 44),
+            Skill("Управляемость", 1),
+            Skill("Лидерство", 3),
+            Skill("Стратегическое мышление", 0),
+            Skill("Организаторские способности", 54),
+            Skill("Собственная эффективность", 0),
+            Skill("Управление исполнением", 0),
+            Skill("Аккуратность", 0),
+            Skill("Активность", 0),
+            Skill("Амбициозность", 12),
+            Skill("Вежливость", 1),
+            Skill("Внимательность", 0),
+            Skill("Дисциплинированность", 0),
+            Skill("Инициативность", 3),
+            Skill("Исполнительность", 0),
+            Skill("Максимализм", 3),
+            Skill("Настойчивость", 0),
+            Skill("Находчивость", 0),
+            Skill("Обаяние", 4),
+            Skill("Порядочность", 0),
+            Skill("Принципиальность", 2),
+            Skill("Пунктуальность", 0),
+            Skill("Решительность", 0),
+            Skill("Самостоятельность", 0),
+            Skill("Скромность", 0),
+            Skill("Тактичность", 0),
+            Skill("Трудолюбие", 0),
+            Skill("Уравновешенность", 6),
+            Skill("Честность", 8),
+            Skill("Энергичность", 0),
+            Skill("Энтузиазм", 35)
 )
