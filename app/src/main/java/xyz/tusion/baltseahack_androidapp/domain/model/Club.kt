@@ -7,7 +7,20 @@ class Club(
     @SerializedName("id")
     @Expose
     var id: Int,
-    @SerializedName("location")
+    @SerializedName("adress")
     @Expose
-    var location: ClubLocation
+    var adress: String,
+    @SerializedName("lat")
+    @Expose
+    var latitude: Float,
+    @SerializedName("lon")
+    @Expose
+    var longtitude : Float,
+    @SerializedName("name")
+    @Expose
+    var name: String,
+    @SerializedName("sections")
+    @Expose
+    var sections: List<Section>
+
 )

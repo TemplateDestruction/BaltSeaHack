@@ -5,6 +5,7 @@
     <string name="close">Close</string>
     <string name="save">Save</string>
     <string name="example_3_title">title</string>
+    <string name="search">Поиск</string>
 
     <string-array name="info">
         <item>
