@@ -55,7 +55,7 @@ public class MapViewFragmentS extends BaseFragment {
     private GoogleMap googleMap;
     FloatingActionButton myLocationBtn;
     FloatingActionButton searchButton;
-//    CheckBox glassFilter, paperFilter, plasticFilter, metalFilter;
+    //    CheckBox glassFilter, paperFilter, plasticFilter, metalFilter;
 //    ConstraintLayout glassTrashBtn, paperTrashBtn, plasticTrashBtn, metalTrashBtn;
     String[] permissions = {Manifest.permission.ACCESS_COARSE_LOCATION};
     ArrayList<Marker> paperMarkers = new ArrayList<>();
@@ -175,7 +175,6 @@ public class MapViewFragmentS extends BaseFragment {
         });
 
 
-
 //        glassFilter.setOnCheckedChangeListener((glassFilter, checked) -> {
 //            if (checked) {
 //                if (firstClick) {
@@ -241,7 +240,7 @@ public class MapViewFragmentS extends BaseFragment {
     }
 
     private void onPointGot(Club club) {
-        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.point_icon);
+        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.logo_blue_normal);
         QRmarkerOption = new MarkerOptions()
                 .position(new LatLng(club.getLongtitude(), club.getLatitude()))
                 .title(club.getName())
@@ -255,32 +254,32 @@ public class MapViewFragmentS extends BaseFragment {
         googleMap.addMarker(QRmarkerOption);
         CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(club.getLongtitude(), club.getLatitude())).zoom(8).build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-//        directionToTrashPoint.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Создаем интент для построения маршрута
-//                Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
-//                intent.setPackage("ru.yandex.yandexnavi");
-//
-//                PackageManager pm = requireActivity().getPackageManager();
-//                List<ResolveInfo> infos = pm.queryIntentActivities(intent, 0);
-//
-//                // Проверяем, установлен ли Яндекс.Навигатор
-//                if (infos == null || infos.size() == 0) {
-//                    // Если нет - будем открывать страничку Навигатора в Google Play
-//                    intent = new Intent(Intent.ACTION_VIEW);
-//                    intent.setData(Uri.parse("market://details?id=ru.yandex.yandexnavi"));
-//                } else {
-//                    intent.putExtra("lat_from", 59.7620964);
-//                    intent.putExtra("lon_from", 30.3551396);
-//                    intent.putExtra("lat_to", club.getLongtitude());
-//                    intent.putExtra("lon_to", club.getLatitude());
-//                }
-//
-//                // Запускаем нужную Activity
-//                startActivity(intent);
-//            }
-//        });
+        directionToTrashPoint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Создаем интент для построения маршрута
+                Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
+                intent.setPackage("ru.yandex.yandexnavi");
+
+                PackageManager pm = requireActivity().getPackageManager();
+                List<ResolveInfo> infos = pm.queryIntentActivities(intent, 0);
+
+                // Проверяем, установлен ли Яндекс.Навигатор
+                if (infos == null || infos.size() == 0) {
+                    // Если нет - будем открывать страничку Навигатора в Google Play
+                    intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("market://details?id=ru.yandex.yandexnavi"));
+                } else {
+                    intent.putExtra("lat_from", 59.7620964);
+                    intent.putExtra("lon_from", 30.3551396);
+                    intent.putExtra("lat_to", club.getLongtitude());
+                    intent.putExtra("lon_to", club.getLatitude());
+                }
+
+                // Запускаем нужную Activity
+                startActivity(intent);
+            }
+        });
     }
 
     private void getTrashCollectionPoints() {
@@ -298,7 +297,7 @@ public class MapViewFragmentS extends BaseFragment {
 
     private void onSuccess(ArrayList<Club> clubs) {
         this.clubsList = clubs;
-        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.point_icon);
+        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.logo_blue_normal);
         Log.e("SUCCESS", "onSuccess:");
         String title;
         Marker marker;
@@ -389,26 +388,31 @@ public class MapViewFragmentS extends BaseFragment {
                         @Override
                         public void onClick(View view) {
                             // Создаем интент для построения маршрута
-                            Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
-                            intent.setPackage("ru.yandex.yandexnavi");
-
-                            PackageManager pm = requireActivity().getPackageManager();
-                            List<ResolveInfo> infos = pm.queryIntentActivities(intent, 0);
-
-                            // Проверяем, установлен ли Яндекс.Навигатор
-                            if (infos == null || infos.size() == 0) {
-                                // Если нет - будем открывать страничку Навигатора в Google Play
-                                intent = new Intent(Intent.ACTION_VIEW);
-                                intent.setData(Uri.parse("market://details?id=ru.yandex.yandexnavi"));
-                            } else {
-                                intent.putExtra("lat_from", 59.7620964);
-                                intent.putExtra("lon_from", 30.3551396);
-                                intent.putExtra("lat_to", club.getLongtitude());
-                                intent.putExtra("lon_to", club.getLatitude());
-                            }
-
-                            // Запускаем нужную Activity
-                            startActivity(intent);
+//                            Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
+//                            intent.setPackage("ru.yandex.yandexnavi");
+//
+//                            PackageManager pm = requireActivity().getPackageManager();
+//                            List<ResolveInfo> infos = pm.queryIntentActivities(intent, 0);
+//
+//                            // Проверяем, установлен ли Яндекс.Навигатор
+//                            if (infos == null || infos.size() == 0) {
+//                                // Если нет - будем открывать страничку Навигатора в Google Play
+//                                intent = new Intent(Intent.ACTION_VIEW);
+//                                intent.setData(Uri.parse("market://details?id=ru.yandex.yandexnavi"));
+//                            } else {
+//                                intent.putExtra("lat_from", 59.7620964);
+//                                intent.putExtra("lon_from", 30.3551396);
+//                                intent.putExtra("lat_to", club.getLongtitude());
+//                                intent.putExtra("lon_to", club.getLatitude());
+//                            }
+//
+//                            // Запускаем нужную Activity
+//                            startActivity(intent);
+                            // Create a Uri from an intent string. Use the result to create an Intent.
+                            Uri gmmIntentUri = Uri.parse("google.navigation:q=" + club.getLongtitude() + "," + club.getLatitude()+ "," + 59.7620964 + ","+ 30.3551396);
+                            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                            mapIntent.setPackage("com.google.android.apps.maps");
+                            startActivity(mapIntent);
                         }
                     });
                 }

@@ -25,4 +25,10 @@ public interface JsonService {
     @GET("club/{id}")
     Observable<Club> getClub(@Path("id") String id);
 
+    @GET("event/{eventId}/subscribe/{userId}")
+    Observable<Completable> subscribeToMeeting(@Path("eventId") String eventid, @Path("userId") String userId);
+
+    @GET("event/{eventId}/meet/{userId}")
+    Observable<Completable> meetMeeting(@Path("eventId") String eventid, @Path("userId") String userId);
+
 }
