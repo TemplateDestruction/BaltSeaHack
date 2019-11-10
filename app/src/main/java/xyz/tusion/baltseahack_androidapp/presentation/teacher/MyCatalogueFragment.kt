@@ -16,8 +16,11 @@ import xyz.tusion.baltseahack_androidapp.R
 import xyz.tusion.baltseahack_androidapp.domain.model.CatalogueItem
 import xyz.tusion.baltseahack_androidapp.domain.model.Event
 import xyz.tusion.baltseahack_androidapp.domain.model.Visitor
+import xyz.tusion.baltseahack_androidapp.domain.repository.RepositoryProvider
+import xyz.tusion.baltseahack_androidapp.domain.utils.PreferenceUtils
 import xyz.tusion.baltseahack_androidapp.presentation.base.BaseFragment
 import xyz.tusion.baltseahack_androidapp.presentation.base.binding.ViewAction
+import xyz.tusion.baltseahack_androidapp.presentation.standard.LoadingDialog
 
 class MyCatalogueFragment : BaseFragment(R.layout.fragment_my_catalog) {
 
@@ -34,6 +37,17 @@ class MyCatalogueFragment : BaseFragment(R.layout.fragment_my_catalog) {
         messages.addAll(resources.getStringArray(R.array.info))
         fillInItems()
         initRecyclerView()
+        val dialog = LoadingDialog.view(childFragmentManager)
+        RepositoryProvider
+            .getJsonRepository()
+            .getCountByEventId("10")
+            .doOnSubscribe { dialog.showLoadingIndicator() }
+            .doAfterTerminate { dialog.hideLoadingIndicator() }
+            .subscribe({
+                PreferenceUtils.saveAge(it)
+            },{
+
+            })
     }
 
     private fun fillInItems() {
