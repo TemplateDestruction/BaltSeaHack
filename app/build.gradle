@@ -102,6 +102,9 @@ dependencies {
     implementation "com.google.zxing:core:3.3.3"
 
     implementation "com.google.code.ndef-tools-for-android:ndeftools:1.2.4"
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
 

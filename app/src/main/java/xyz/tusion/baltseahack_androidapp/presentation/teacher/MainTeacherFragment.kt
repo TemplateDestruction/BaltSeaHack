@@ -11,9 +11,10 @@ class MainTeacherFragment : BaseFragment(R.layout.frag_main_teacher) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        create_event.setOnClickListener {
+        /*create_event.setOnClickListener {
             navController.navigate(R.id.createEventFragment)
-        }
+        }*/
+        navController.navigate(R.id.myEventFragment)
     }
 
     override fun onStart() {

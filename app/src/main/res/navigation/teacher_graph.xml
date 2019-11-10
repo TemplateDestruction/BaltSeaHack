@@ -8,8 +8,16 @@
         android:name="xyz.tusion.baltseahack_androidapp.presentation.teacher.MainTeacherFragment"
         android:label="MainTeacherFragment" />
     <fragment
-        android:id="@+id/createEventFragment"
-        android:name="xyz.tusion.baltseahack_androidapp.presentation.teacher.CreateEventFragment"
-        android:label="CreateEventFragment" />
+        android:id="@+id/myEventFragment"
+        android:name="xyz.tusion.baltseahack_androidapp.presentation.teacher.MyEventFragment"
+        android:label="MyEventFragment" />
+    <fragment
+        android:id="@+id/visitorDetailsFragment"
+        android:name="xyz.tusion.baltseahack_androidapp.presentation.teacher.VisitorDetailsFragment"
+        android:label="VisitorDetailsFragment" >
+        <argument
+            android:name="visitor"
+            app:argType="xyz.tusion.baltseahack_androidapp.domain.model.Visitor" />
+    </fragment>
 
 </navigation>
