@@ -29,7 +29,7 @@
         android:id="@+id/catalogueFragment"
         android:name="xyz.tusion.baltseahack_androidapp.presentation.main.CatalogueFragment"
         android:label="" />
-    <fragment
+        <fragment
         android:id="@+id/mapFragment"
         android:name="xyz.tusion.baltseahack_androidapp.presentation.map.MapViewFragmentS"
         android:label=""
@@ -41,6 +41,20 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="xyz.tusion.baltseahack_androidapp.presentation.map.SearchFragment"
-        android:label="" />
+        android:label="" >
+        <action
+            android:id="@+id/action_searchFragment_to_mapFragment"
+            app:destination="@id/mapFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/catalogueFragment">
+            <argument
+                android:name="myArg"
+                app:argType="xyz.tusion.baltseahack_androidapp.domain.model.Club">
+            </argument>
+
+
+        </action>
+
+    </fragment>
 
 </navigation>

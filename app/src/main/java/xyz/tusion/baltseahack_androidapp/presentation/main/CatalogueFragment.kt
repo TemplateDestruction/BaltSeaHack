@@ -38,6 +38,7 @@ class CatalogueFragment : Fragment() {
         messages.addAll(resources.getStringArray(R.array.info))
         fillInItems()
         initRecyclerView()
+
     }
 
     private fun fillInItems() {

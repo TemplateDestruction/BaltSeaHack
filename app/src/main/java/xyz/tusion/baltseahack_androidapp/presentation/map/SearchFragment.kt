@@ -2,14 +2,19 @@ package xyz.tusion.baltseahack_androidapp.presentation.map
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigator
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.catalogue_item.view.*
+import kotlinx.android.synthetic.main.club_item.*
 import kotlinx.android.synthetic.main.club_item.view.*
 import kotlinx.android.synthetic.main.search_frag.*
 import xyz.tusion.baltseahack_androidapp.R
@@ -22,16 +27,27 @@ class SearchFragment : BaseFragment(R.layout.search_frag) {
     lateinit var spinnerSkillsDialog: SpinnerDialog
     private var sections = ArrayList<String>()
     private var skills = ArrayList<String>()
-    private var clubsWithSections = ArrayList<String>()
+    private var clubsWithSections = ArrayList<Club>()
     private var sectionsWithSkills = ArrayList<String>()
+    private var clubs = ArrayList<Club>()
+    lateinit var adapterSearchClubs: ClubsItemsListAdapter
+    lateinit var adapterSearchSections: StringItemsListAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sections.addAll((resources.getStringArray(R.array.sections)))
         val spinnerAdapter = ArrayAdapter<String>(
             requireContext(),
             android.R.layout.simple_spinner_item,
             listOf("по секции", "по навыкам")
         )
+        clubs.addAll(arguments?.getParcelableArrayList("clubs")!!)
+        adapterSearchClubs = ClubsItemsListAdapter(requireContext())
+        adapterSearchSections = StringItemsListAdapter(requireContext())
+        fragSearchClubs_rv.adapter = adapterSearchClubs
+//        fragSearchSections_rv.adapter = adapterSearchSections
+
+
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_searchFragment.adapter = spinnerAdapter
         spinner_searchFragment.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
@@ -42,7 +58,7 @@ class SearchFragment : BaseFragment(R.layout.search_frag) {
                 if (p2 == 0) {
                     selectSection_searchFragment.visibility = View.VISIBLE
                     searchBySection_searchFragment.visibility = View.VISIBLE
-                    fragSearchSections_rv.visibility = View.VISIBLE
+//                    fragSearchSections_rv.visibility = View.VISIBLE
                     selectSkills_searchFragment.visibility = View.GONE
                     searchBySkills_searchFragment.visibility = View.GONE
 
@@ -51,7 +67,7 @@ class SearchFragment : BaseFragment(R.layout.search_frag) {
                     searchBySection_searchFragment.visibility = View.GONE
                     selectSkills_searchFragment.visibility = View.VISIBLE
                     searchBySkills_searchFragment.visibility = View.VISIBLE
-                    fragSearchSections_rv.visibility = View.GONE
+//                    fragSearchSections_rv.visibility = View.GONE
 
                 }
             }
@@ -67,9 +83,7 @@ class SearchFragment : BaseFragment(R.layout.search_frag) {
             selectSection_searchFragment.text = item.toString()
             spinnerSectionsDialog.closeSpinerDialog()
         }
-        selectSection_searchFragment.setOnClickListener {
-            spinnerSectionsDialog.showSpinerDialog()
-        }
+
         spinnerSkillsDialog = SpinnerDialog(requireActivity(), skills, "Выберите навыки", "Закрыть")
         spinnerSkillsDialog.setCancellable(true) // for cancellable
         spinnerSkillsDialog.setShowKeyboard(false) // for open keyboard by default
@@ -84,11 +98,21 @@ class SearchFragment : BaseFragment(R.layout.search_frag) {
             spinnerSkillsDialog.showSpinerDialog()
         }
         searchBySection_searchFragment.setOnClickListener {
-            //            TODO request to sever, fiil array and show on map
+            fragSearchClubs_rv.visibility = View.VISIBLE
+            for (club in clubs) {
+                club.sections.forEach {
+                    if (it.name == selectSection_searchFragment.text) {
+                        clubsWithSections.add(club)
+                        adapterSearchClubs.updateItems(clubsWithSections)
+                        Log.e("SearchFragment", club.name + " | " + club.sections)
+
+                    }
+                }
+            }
         }
         searchBySkills_searchFragment.setOnClickListener {
             //            TODO request to sever and fill array
-            fragSearchSections_rv.visibility = View.VISIBLE
+//            fragSearchSections_rv.visibility = View.VISIBLE
         }
     }
 
@@ -168,13 +192,22 @@ class ClubsItemsListAdapter(
 
     override fun onBindViewHolder(holder: ClubsItemViewHolder, position: Int) {
         holder.bind(clubsList[position])
+
     }
 
     inner class ClubsItemViewHolder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bind(club: Club) {
             containerView.clubName_clubItem.text  = club.name
-            containerView.clubName_clubItem.text  = club.adress
+            containerView.clubAdress_clubItem.text  = club.adress
+            containerView.layout_club_item.setOnClickListener {
+                val action = SearchFragmentDirections.actionSearchFragmentToMapFragment(club)
+//                action.arguments.putParcelable("club", club)
+//                action.arguments.putString("dich", "dich")
+//                var bundle = bundleOf("club" to club)
+                it.findNavController().navigate(action)
+            }
+
         }
 
 

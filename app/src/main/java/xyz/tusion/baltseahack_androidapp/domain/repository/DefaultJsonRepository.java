@@ -29,7 +29,7 @@ public class DefaultJsonRepository implements JsonRepository {
     private int pageNumber = 1;
 
     @Override
-    public Observable<List<Club>> getClubs() {
+    public Observable<ArrayList<Club>> getClubs() {
         return ServerApiFactory
                 .getJsonService()
                 .getClubs()
