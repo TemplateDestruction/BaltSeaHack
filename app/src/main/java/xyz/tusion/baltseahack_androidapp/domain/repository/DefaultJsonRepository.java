@@ -1,5 +1,7 @@
 package xyz.tusion.baltseahack_androidapp.domain.repository;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.google.gson.JsonArray;
@@ -20,12 +22,30 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.RequestBody;
 import xyz.tusion.baltseahack_androidapp.domain.api.ServerApiFactory;
-import xyz.tusion.baltseahack_androidapp.domain.utils.PreferenceUtils;
-import xyz.tusion.baltseahack_androidapp.domain.utils.RxUtils;
+import xyz.tusion.baltseahack_androidapp.domain.model.Club;
 
 public class DefaultJsonRepository implements JsonRepository {
 
     private int pageNumber = 1;
+
+    @Override
+    public Observable<List<Club>> getClubs() {
+        return ServerApiFactory
+                .getJsonService()
+                .getClubs()
+                .flatMap(new Function<List<Club>, ObservableSource<List<Club>>>() {
+                    @Override
+                    public ObservableSource<List<Club>> apply(List<Club> clubs) throws Exception {
+                        Log.e("DICH", "apply: ");
+                        for (Club club : clubs) {
+                            Log.e("map data: ", club.getLocation().getName());
+                        }
+                        return Observable.just(clubs);
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
 
     /*@NonNull
     @Override

@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.frag_screener_3.*
 import xyz.tusion.baltseahack_androidapp.R
 import xyz.tusion.baltseahack_androidapp.presentation.base.BaseFragment
 import xyz.tusion.baltseahack_androidapp.presentation.main.MainActivity
+import xyz.tusion.baltseahack_androidapp.presentation.main.MainActivity2
 
 class ScreenerFrag3 : BaseFragment() {
 
@@ -41,7 +42,7 @@ class ScreenerFrag3 : BaseFragment() {
     }
 
     private fun onSuccess() {
-        startActivity(Intent(requireContext(), MainActivity::class.java))
+        startActivity(Intent(requireContext(), MainActivity2::class.java))
         activity?.finish()
     }
 }

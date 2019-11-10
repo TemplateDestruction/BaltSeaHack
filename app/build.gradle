@@ -12,19 +12,22 @@ android {
     buildToolsVersion '29.0.1'
 
     defaultConfig {
-        applicationId "xyz.tusion.baltseahack_androidapp"
-        minSdkVersion 21
+        applicationId "com.example.garbagecollector"
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "API_ENDPOINT", '"http://app.nrboom.com/api/"')
+        buildConfigField("String", "API_ENDPOINT", '"http://nrboo-nrboo-14p3ah927dpbz-1071006850.eu-central-1.elb.amazonaws.com:8080/"')
     }
 
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
     buildTypes {
@@ -102,4 +105,13 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.1'
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
+    implementation 'com.github.kizitonwose:CalendarView:0.2.9'
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+
 }
+apply plugin: 'com.google.gms.google-services'

@@ -13,6 +13,7 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".presentation.SplashActivity"
@@ -35,5 +36,6 @@
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
             tools:replace="screenOrientation"/>
+        <activity android:name=".presentation.main.MainActivity2" />
     </application>
 </manifest>
