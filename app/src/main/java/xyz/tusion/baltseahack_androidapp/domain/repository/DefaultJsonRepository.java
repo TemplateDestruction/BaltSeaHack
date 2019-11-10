@@ -66,6 +66,24 @@ public class DefaultJsonRepository implements JsonRepository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    @Override
+    public Observable<Completable> meetMeeting(String eventid, String userId) {
+        return ServerApiFactory
+                .getJsonService()
+                .meetMeeting(eventid, userId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
+    public Observable<Completable> subscribeToMeeting(String eventid, String userId) {
+        return ServerApiFactory
+                .getJsonService()
+                .meetMeeting(eventid, userId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     /*@NonNull
     @Override
     public Observable<List<ResultJava>> getJavaVideos() {
