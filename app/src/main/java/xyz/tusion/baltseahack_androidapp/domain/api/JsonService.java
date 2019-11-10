@@ -3,6 +3,7 @@ package xyz.tusion.baltseahack_androidapp.domain.api;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Completable;
@@ -19,7 +20,7 @@ public interface JsonService {
     Completable regJava(@Body JsonObject params);
 
     @GET("club/all")
-    Observable<List<Club>> getClubs();
+    Observable<ArrayList<Club>> getClubs();
 
     @GET("club/{id}")
     Observable<Club> getClub(@Path("id") String id);

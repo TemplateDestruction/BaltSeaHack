@@ -71,8 +71,51 @@
 Контакты для участников и болельщиков: Вячеслав Михайлович Соколов, руководитель направления ООО «ФИЛИП КИНДРЕД», e-mail: sport-pmc@yandex.ru, моб. тел.: +7 904 606 81 72.
         </item>
     </string-array>
-    <string name="title_activity_main3">Main3Activity</string>
+
+    <string-array name="sections">
+        <item>изо</item>
+        <item>современный танец</item>
+        <item>театр</item>
+        <item>офп</item>
+        <item>гимнастика</item>
+        <item>самбо</item>
+        <item>настольный теннис</item>
+        <item>вокальный ансамбль</item>
+        <item>хореография</item>
+        <item>эстрадный танец</item>
+        <item>футбол</item>
+        <item>каратэ</item>
+        <item>дзюдо</item>
+        <item>шахматы</item>
+        <item>гитара</item>
+        <item>брейк-данс</item>
+        <item>аэробика</item>
+        <item>дизайн</item>
+        <item>рок</item>
+        <item>бодибилдинг</item>
+        <item>атлетизм</item>
+        <item>военно патриотический клуб</item>
+        <item>хоккей</item>
+        <item>хип-хоп</item>
+        <item>пение</item>
+        <item>фитнес </item>
+        <item>роспись по дереву</item>
+        <item>бокс</item>
+        <item>хор</item>
+        <item>акробатика</item>
+        <item>пауэрлифтинг</item>
+        <item>английский язык</item>
+        <item>история</item>
+        <item>волейбол</item>
+        <item>программирование</item>
+        <item>блокчейн</item>
+        <item>искусственный интеллект</item>
+        <item>финансовые технологии</item>
+        <item>баскетбол</item>
+    </string-array>
+    <string name="title_activity_main2">Main2Activity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_activity_bottom_nav">BottomNavAct</string>
 </resources>

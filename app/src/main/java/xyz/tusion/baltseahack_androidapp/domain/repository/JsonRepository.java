@@ -1,6 +1,7 @@
 package xyz.tusion.baltseahack_androidapp.domain.repository;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -15,7 +16,7 @@ public interface JsonRepository {
     @NonNull
     Observable<Authorization> auth(@NonNull String login, @NonNull String password);*/
 
-    Observable<List<Club>> getClubs();
+    Observable<ArrayList<Club>> getClubs();
 
     Observable<Club> getSingleClubById(String id);
 }

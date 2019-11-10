@@ -2,27 +2,24 @@ package xyz.tusion.baltseahack_androidapp.presentation.map;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.navigation.Navigation;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -49,11 +46,12 @@ import xyz.tusion.baltseahack_androidapp.presentation.standard.LoadingView;
 
 public class MapViewFragmentS extends BaseFragment {
 
+
     boolean firstClick = true;
     LoadingView dialog;
-    List<Club> clubsList;
+    ArrayList<Club> clubsList;
     MapView mMapView;
-    boolean fromQRCode = false;
+    boolean fromSinglePoint = false;
     private GoogleMap googleMap;
     FloatingActionButton myLocationBtn;
     FloatingActionButton searchButton;
@@ -72,6 +70,7 @@ public class MapViewFragmentS extends BaseFragment {
             pointOperationMode, directionToTrashPoint;
     private MarkerOptions QRmarkerOption;
     private TextView routeNavigator;
+    private Club singleClub;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -108,8 +107,10 @@ public class MapViewFragmentS extends BaseFragment {
             // Change the visibility of my location button
 //            locationButton.setVisibility(View.GONE);
             googleMap.getUiSettings().setCompassEnabled(false);
-            if (!fromQRCode) {
+            if (!fromSinglePoint) {
                 getTrashCollectionPoints();
+            } else {
+                onPointGot(singleClub);
             }
             googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                 @Override
@@ -125,10 +126,14 @@ public class MapViewFragmentS extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         try {
-            if (getArguments().getString("marker") != null) {
-                getClub(getArguments().getString("id"));
-                fromQRCode = true;
+            if (getArguments().getString("dich") != null) {
+                Log.e("MapViewFrag", "onViewCreated: dich");
             }
+            if (getArguments().getParcelable("myArg") != null) {
+                fromSinglePoint = true;
+                singleClub = getArguments().getParcelable("myArg");
+            }
+
         } catch (Exception e) {
 
         }
@@ -163,8 +168,12 @@ public class MapViewFragmentS extends BaseFragment {
             googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         });
         searchButton.setOnClickListener(view1 -> {
-            Navigation.findNavController(view1).navigate(R.id.action_mapFragment_to_searchFragment);
+            Bundle bundle = new Bundle();
+            bundle.putParcelableArrayList("clubs", clubsList);
+
+            Navigation.findNavController(view1).navigate(R.id.action_mapFragment_to_searchFragment, bundle);
         });
+
 
 
 //        glassFilter.setOnCheckedChangeListener((glassFilter, checked) -> {
@@ -234,7 +243,7 @@ public class MapViewFragmentS extends BaseFragment {
     private void onPointGot(Club club) {
         BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.point_icon);
         QRmarkerOption = new MarkerOptions()
-                .position(new LatLng(club.getLatitude(), club.getLongtitude()))
+                .position(new LatLng(club.getLongtitude(), club.getLatitude()))
                 .title(club.getName())
                 .icon(descriptor);
         pointName.setText(club.getName());
@@ -244,34 +253,34 @@ public class MapViewFragmentS extends BaseFragment {
         String str = stringBuilder.toString();
         pointTrashTypes.setText(str.replace(str.charAt(str.length() - 2), '\u0000'));
         googleMap.addMarker(QRmarkerOption);
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(59.7620964, 30.3551396)).zoom(8).build();
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(club.getLongtitude(), club.getLatitude())).zoom(8).build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-        directionToTrashPoint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Создаем интент для построения маршрута
-                Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
-                intent.setPackage("ru.yandex.yandexnavi");
-
-                PackageManager pm = requireActivity().getPackageManager();
-                List<ResolveInfo> infos = pm.queryIntentActivities(intent, 0);
-
-                // Проверяем, установлен ли Яндекс.Навигатор
-                if (infos == null || infos.size() == 0) {
-                    // Если нет - будем открывать страничку Навигатора в Google Play
-                    intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("market://details?id=ru.yandex.yandexnavi"));
-                } else {
-                    intent.putExtra("lat_from", 59.7620964);
-                    intent.putExtra("lon_from", 30.3551396);
-                    intent.putExtra("lat_to", club.getLatitude());
-                    intent.putExtra("lon_to", club.getLongtitude());
-                }
-
-                // Запускаем нужную Activity
-                startActivity(intent);
-            }
-        });
+//        directionToTrashPoint.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Создаем интент для построения маршрута
+//                Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
+//                intent.setPackage("ru.yandex.yandexnavi");
+//
+//                PackageManager pm = requireActivity().getPackageManager();
+//                List<ResolveInfo> infos = pm.queryIntentActivities(intent, 0);
+//
+//                // Проверяем, установлен ли Яндекс.Навигатор
+//                if (infos == null || infos.size() == 0) {
+//                    // Если нет - будем открывать страничку Навигатора в Google Play
+//                    intent = new Intent(Intent.ACTION_VIEW);
+//                    intent.setData(Uri.parse("market://details?id=ru.yandex.yandexnavi"));
+//                } else {
+//                    intent.putExtra("lat_from", 59.7620964);
+//                    intent.putExtra("lon_from", 30.3551396);
+//                    intent.putExtra("lat_to", club.getLongtitude());
+//                    intent.putExtra("lon_to", club.getLatitude());
+//                }
+//
+//                // Запускаем нужную Activity
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private void getTrashCollectionPoints() {
@@ -287,7 +296,7 @@ public class MapViewFragmentS extends BaseFragment {
         throwable.fillInStackTrace();
     }
 
-    private void onSuccess(List<Club> clubs) {
+    private void onSuccess(ArrayList<Club> clubs) {
         this.clubsList = clubs;
         BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.point_icon);
         Log.e("SUCCESS", "onSuccess:");
@@ -365,7 +374,7 @@ public class MapViewFragmentS extends BaseFragment {
 
     public void onMarkerClick(Marker marker) {
         Log.e("CLICK MARKER MAP", "onMarkerClick: ");
-        if (!fromQRCode) {
+        if (!fromSinglePoint) {
             for (Club club : clubsList) {
                 if (club.getName().equals(marker.getTitle())) {
                     pointName.setText(club.getName());
@@ -376,7 +385,32 @@ public class MapViewFragmentS extends BaseFragment {
                     pointTrashTypes.setText(str.replace(str.charAt(str.length() - 2), '\u0000'));
                     // TODO: 9/29/2019 маршрут
 //                directionToTrashPoint
+                    directionToTrashPoint.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            // Создаем интент для построения маршрута
+                            Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
+                            intent.setPackage("ru.yandex.yandexnavi");
 
+                            PackageManager pm = requireActivity().getPackageManager();
+                            List<ResolveInfo> infos = pm.queryIntentActivities(intent, 0);
+
+                            // Проверяем, установлен ли Яндекс.Навигатор
+                            if (infos == null || infos.size() == 0) {
+                                // Если нет - будем открывать страничку Навигатора в Google Play
+                                intent = new Intent(Intent.ACTION_VIEW);
+                                intent.setData(Uri.parse("market://details?id=ru.yandex.yandexnavi"));
+                            } else {
+                                intent.putExtra("lat_from", 59.7620964);
+                                intent.putExtra("lon_from", 30.3551396);
+                                intent.putExtra("lat_to", club.getLongtitude());
+                                intent.putExtra("lon_to", club.getLatitude());
+                            }
+
+                            // Запускаем нужную Activity
+                            startActivity(intent);
+                        }
+                    });
                 }
             }
         }

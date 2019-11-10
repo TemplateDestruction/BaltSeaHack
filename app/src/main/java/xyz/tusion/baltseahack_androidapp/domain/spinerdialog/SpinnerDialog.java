@@ -47,12 +47,12 @@ public class SpinnerDialog {
     EditText searchBox;
 
     private void initColor(Context context) {
-        this.titleColor = context.getResources().getColor(R.color.col_white);
-        this.searchIconColor = context.getResources().getColor(R.color.col_white);
-        this.searchTextColor = context.getResources().getColor(R.color.col_black);
-        this.itemColor = context.getResources().getColor(R.color.col_white);
-        this.closeColor = context.getResources().getColor(R.color.col_white);
-        this.itemDividerColor = context.getResources().getColor(R.color.col_white);
+        this.titleColor = context.getResources().getColor(R.color.col_black);
+        this.searchIconColor = context.getResources().getColor(R.color.col_black);
+        this.itemColor = context.getResources().getColor(R.color.col_black);
+        this.closeColor = context.getResources().getColor(R.color.col_black);
+        this.itemDividerColor = context.getResources().getColor(R.color.col_black);
+        this.searchTextColor = context.getResources().getColor(R.color.col_white);
     }
 
     public SpinnerDialog(Activity activity, ArrayList<String> items, String dialogTitle) {
