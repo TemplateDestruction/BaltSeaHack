@@ -13,8 +13,9 @@ class SplashActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
 
 //        startActivity(Intent(this, ScreenerActivity::class.java))
-    startActivity(Intent(this, BottomNavAct::class.java))
 //    startActivity(Intent(this, BottomNavAct::class.java))
+//    startActivity(Intent(this, BottomNavAct::class.java))
+    startActivity(Intent(this, MainActivity2::class.java))
 
 
 

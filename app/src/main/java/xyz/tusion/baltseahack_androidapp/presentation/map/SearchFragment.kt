@@ -99,6 +99,7 @@ class SearchFragment : BaseFragment(R.layout.search_frag) {
         }
         searchBySection_searchFragment.setOnClickListener {
             fragSearchClubs_rv.visibility = View.VISIBLE
+            clubsWithSections.clear()
             for (club in clubs) {
                 club.sections.forEach {
                     if (it.name == selectSection_searchFragment.text) {
