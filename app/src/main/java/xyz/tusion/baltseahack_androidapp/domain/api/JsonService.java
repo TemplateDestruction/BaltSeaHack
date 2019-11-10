@@ -10,6 +10,7 @@ import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import xyz.tusion.baltseahack_androidapp.domain.model.Club;
 
@@ -19,4 +20,8 @@ public interface JsonService {
 
     @GET("club/all")
     Observable<List<Club>> getClubs();
+
+    @GET("club/{id}")
+    Observable<Club> getClub(@Path("id") String id);
+
 }

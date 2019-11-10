@@ -5,6 +5,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import xyz.tusion.baltseahack_androidapp.domain.model.Club;
+import xyz.tusion.baltseahack_androidapp.presentation.base.binding.Bind;
 
 public interface JsonRepository {
 
@@ -16,4 +17,5 @@ public interface JsonRepository {
 
     Observable<List<Club>> getClubs();
 
+    Observable<Club> getSingleClubById(String id);
 }
