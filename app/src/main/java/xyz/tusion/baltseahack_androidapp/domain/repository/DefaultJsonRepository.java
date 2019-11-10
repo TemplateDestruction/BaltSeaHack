@@ -33,16 +33,16 @@ public class DefaultJsonRepository implements JsonRepository {
         return ServerApiFactory
                 .getJsonService()
                 .getClubs()
-                .flatMap(new Function<List<Club>, ObservableSource<List<Club>>>() {
-                    @Override
-                    public ObservableSource<List<Club>> apply(List<Club> clubs) throws Exception {
-                        Log.e("DICH", "apply: ");
-                        for (Club club : clubs) {
-                            Log.e("map data: ", club.getLocation().getName());
-                        }
-                        return Observable.just(clubs);
-                    }
-                })
+//                .flatMap(new Function<List<Club>, ObservableSource<List<Club>>>() {
+//                    @Override
+//                    public ObservableSource<List<Club>> apply(List<Club> clubs) throws Exception {
+//                        Log.e("DICH", "apply: ");
+//                        for (Club club : clubs) {
+//                            Log.e("map data: ", club.getName());
+//                        }
+//                        return Observable.just(clubs);
+//                    }
+//                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
