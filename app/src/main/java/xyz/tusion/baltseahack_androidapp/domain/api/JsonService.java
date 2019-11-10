@@ -37,7 +37,7 @@ public interface JsonService {
     Observable<List<Event>> getAllEvents();
 
     @GET("event/{eventId}/count")
-    Observable<Event> getCountByEventId();
+    Observable<Integer> getCountByEventId(@Path("eventId") String eventId);
 
 
 

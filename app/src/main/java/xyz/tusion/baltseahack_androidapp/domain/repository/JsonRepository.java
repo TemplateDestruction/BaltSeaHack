@@ -29,4 +29,7 @@ public interface JsonRepository {
 
     Observable<Completable> subscribeToMeeting(String eventid, String userId);
 
+    Observable<Integer> getCountByEventId(String eventId);
+
+
 }

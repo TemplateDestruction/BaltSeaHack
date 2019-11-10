@@ -1,6 +1,7 @@
 package xyz.tusion.baltseahack_androidapp.domain.repository;
 
 import android.util.Log;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 
@@ -13,10 +14,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
+import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
@@ -80,6 +84,16 @@ public class DefaultJsonRepository implements JsonRepository {
         return ServerApiFactory
                 .getJsonService()
                 .meetMeeting(eventid, userId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
+    public Observable<Integer> getCountByEventId(String eventId) {
+        final Scheduler scheduler = Schedulers.from(Executors.newSingleThreadExecutor());
+        return ServerApiFactory
+                .getJsonService()
+                .getCountByEventId(eventId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
