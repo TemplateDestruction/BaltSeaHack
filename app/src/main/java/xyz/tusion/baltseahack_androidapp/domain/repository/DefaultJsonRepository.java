@@ -38,11 +38,20 @@ public class DefaultJsonRepository implements JsonRepository {
 //                    public ObservableSource<List<Club>> apply(List<Club> clubs) throws Exception {
 //                        Log.e("DICH", "apply: ");
 //                        for (Club club : clubs) {
-//                            Log.e("map data: ", club.getName());
+//                            Log.e("map data: ", club.getAdress());
 //                        }
 //                        return Observable.just(clubs);
 //                    }
 //                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
+    public Observable<Club> getSingleClubById(String id) {
+        return ServerApiFactory
+                .getJsonService()
+                .getClub(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

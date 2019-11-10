@@ -7,7 +7,7 @@ class Club(
     @SerializedName("id")
     @Expose
     var id: Int,
-    @SerializedName("adress")
+    @SerializedName("address")
     @Expose
     var adress: String,
     @SerializedName("lat")

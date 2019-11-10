@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="xyz.tusion.baltseahack_androidapp">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.NFC" />
     <uses-feature android:name="android.hardware.nfc" />
