@@ -33,5 +33,8 @@
     <dimen name="text_24">24sp</dimen>
 
     <dimen name="profile_screen_qr_size">138dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 
 </resources>

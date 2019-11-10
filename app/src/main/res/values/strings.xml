@@ -71,4 +71,8 @@
 Контакты для участников и болельщиков: Вячеслав Михайлович Соколов, руководитель направления ООО «ФИЛИП КИНДРЕД», e-mail: sport-pmc@yandex.ru, моб. тел.: +7 904 606 81 72.
         </item>
     </string-array>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

@@ -37,12 +37,13 @@ class ScanQrFragment : Fragment() {
         try {
             if (result != null) {
                 App.showMessage(result.contents)
-                findNavController().navigate(
+                findNavController().popBackStack()
+                /*findNavController().navigate(
                     R.id.action_scanQrFragment_to_secondFragment,
                     Bundle().apply {
                         putString(SCAN_QR_CONTENT_CODE, result.contents)
                     }
-                )
+                )*/
             } else {
                 super.onActivityResult(requestCode, resultCode, data)
             }
