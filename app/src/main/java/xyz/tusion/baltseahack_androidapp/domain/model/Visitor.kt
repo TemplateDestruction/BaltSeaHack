@@ -10,11 +10,11 @@ class Visitor(
 
 
 val listOfVisitor = listOf(
-    Visitor("Валера Петров"),
-    Visitor("Валера Петров"),
-    Visitor("Валера Петров"),
-    Visitor("Валера Петров"),
-    Visitor("Валера Петров"),
-    Visitor("Валера Петров"),
-    Visitor("Валера Петров")
+    Visitor("Валерий Петров"),
+    Visitor("Андрей Касаренко"),
+    Visitor("Валерия Буловенко"),
+    Visitor("Кирилл Потапенко"),
+    Visitor("Максим Остроухов"),
+    Visitor("Петр Меньшов"),
+    Visitor("Константин Обухов")
 )

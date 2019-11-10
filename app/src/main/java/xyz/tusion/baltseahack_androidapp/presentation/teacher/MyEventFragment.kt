@@ -35,6 +35,13 @@ class MyEventFragment : BaseFragment(R.layout.frag_my_event) {
             newFragment.arguments = bundle
             newFragment.show(ft, "dialog")
         }
+
+        back_arrow.setOnClickListener {
+            navController.popBackStack()
+        }
+        back_word.setOnClickListener {
+            navController.popBackStack()
+        }
             event_name.text = arguments?.getParcelable<Event>("event")?.name
         initRecyclerView()
     }
@@ -93,7 +100,7 @@ class VisitorListAdapter(
         fun bind(visitor: Visitor) {
 
             visitor_name.text = visitor.name
-            visitor_number.text = "$adapterPosition."
+            visitor_number.text = "${adapterPosition + 1}."
             containerView.setOnClickListener {
                 onVideoClickAction.accept(visitor)
             }
