@@ -175,6 +175,7 @@ public class MapViewFragmentS extends BaseFragment {
         });
 
 
+
 //        glassFilter.setOnCheckedChangeListener((glassFilter, checked) -> {
 //            if (checked) {
 //                if (firstClick) {
@@ -242,7 +243,7 @@ public class MapViewFragmentS extends BaseFragment {
     private void onPointGot(Club club) {
         BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.point_icon);
         QRmarkerOption = new MarkerOptions()
-                .position(new LatLng(club.getLatitude(), club.getLongtitude()))
+                .position(new LatLng(club.getLongtitude(), club.getLatitude()))
                 .title(club.getName())
                 .icon(descriptor);
         pointName.setText(club.getName());
@@ -252,34 +253,34 @@ public class MapViewFragmentS extends BaseFragment {
         String str = stringBuilder.toString();
         pointTrashTypes.setText(str.replace(str.charAt(str.length() - 2), '\u0000'));
         googleMap.addMarker(QRmarkerOption);
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(club.getLatitude(), club.getLongtitude())).zoom(8).build();
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(club.getLongtitude(), club.getLatitude())).zoom(8).build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-        directionToTrashPoint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Создаем интент для построения маршрута
-                Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
-                intent.setPackage("ru.yandex.yandexnavi");
-
-                PackageManager pm = requireActivity().getPackageManager();
-                List<ResolveInfo> infos = pm.queryIntentActivities(intent, 0);
-
-                // Проверяем, установлен ли Яндекс.Навигатор
-                if (infos == null || infos.size() == 0) {
-                    // Если нет - будем открывать страничку Навигатора в Google Play
-                    intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("market://details?id=ru.yandex.yandexnavi"));
-                } else {
-                    intent.putExtra("lat_from", 59.7620964);
-                    intent.putExtra("lon_from", 30.3551396);
-                    intent.putExtra("lat_to", club.getLatitude());
-                    intent.putExtra("lon_to", club.getLongtitude());
-                }
-
-                // Запускаем нужную Activity
-                startActivity(intent);
-            }
-        });
+//        directionToTrashPoint.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Создаем интент для построения маршрута
+//                Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
+//                intent.setPackage("ru.yandex.yandexnavi");
+//
+//                PackageManager pm = requireActivity().getPackageManager();
+//                List<ResolveInfo> infos = pm.queryIntentActivities(intent, 0);
+//
+//                // Проверяем, установлен ли Яндекс.Навигатор
+//                if (infos == null || infos.size() == 0) {
+//                    // Если нет - будем открывать страничку Навигатора в Google Play
+//                    intent = new Intent(Intent.ACTION_VIEW);
+//                    intent.setData(Uri.parse("market://details?id=ru.yandex.yandexnavi"));
+//                } else {
+//                    intent.putExtra("lat_from", 59.7620964);
+//                    intent.putExtra("lon_from", 30.3551396);
+//                    intent.putExtra("lat_to", club.getLongtitude());
+//                    intent.putExtra("lon_to", club.getLatitude());
+//                }
+//
+//                // Запускаем нужную Activity
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private void getTrashCollectionPoints() {
@@ -384,7 +385,32 @@ public class MapViewFragmentS extends BaseFragment {
                     pointTrashTypes.setText(str.replace(str.charAt(str.length() - 2), '\u0000'));
                     // TODO: 9/29/2019 маршрут
 //                directionToTrashPoint
+                    directionToTrashPoint.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            // Создаем интент для построения маршрута
+                            Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
+                            intent.setPackage("ru.yandex.yandexnavi");
 
+                            PackageManager pm = requireActivity().getPackageManager();
+                            List<ResolveInfo> infos = pm.queryIntentActivities(intent, 0);
+
+                            // Проверяем, установлен ли Яндекс.Навигатор
+                            if (infos == null || infos.size() == 0) {
+                                // Если нет - будем открывать страничку Навигатора в Google Play
+                                intent = new Intent(Intent.ACTION_VIEW);
+                                intent.setData(Uri.parse("market://details?id=ru.yandex.yandexnavi"));
+                            } else {
+                                intent.putExtra("lat_from", 59.7620964);
+                                intent.putExtra("lon_from", 30.3551396);
+                                intent.putExtra("lat_to", club.getLongtitude());
+                                intent.putExtra("lon_to", club.getLatitude());
+                            }
+
+                            // Запускаем нужную Activity
+                            startActivity(intent);
+                        }
+                    });
                 }
             }
         }
