@@ -257,27 +257,10 @@ public class MapViewFragmentS extends BaseFragment {
         directionToTrashPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Создаем интент для построения маршрута
-                Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
-                intent.setPackage("ru.yandex.yandexnavi");
-
-                PackageManager pm = requireActivity().getPackageManager();
-                List<ResolveInfo> infos = pm.queryIntentActivities(intent, 0);
-
-                // Проверяем, установлен ли Яндекс.Навигатор
-                if (infos == null || infos.size() == 0) {
-                    // Если нет - будем открывать страничку Навигатора в Google Play
-                    intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("market://details?id=ru.yandex.yandexnavi"));
-                } else {
-                    intent.putExtra("lat_from", 59.7620964);
-                    intent.putExtra("lon_from", 30.3551396);
-                    intent.putExtra("lat_to", club.getLongtitude());
-                    intent.putExtra("lon_to", club.getLatitude());
-                }
-
-                // Запускаем нужную Activity
-                startActivity(intent);
+                Uri gmmIntentUri = Uri.parse("google.navigation:q=" + club.getLongtitude() + "," + club.getLatitude());
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
             }
         });
     }

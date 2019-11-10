@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import xyz.tusion.baltseahack_androidapp.R
 import xyz.tusion.baltseahack_androidapp.domain.repository.RepositoryProvider
+import xyz.tusion.baltseahack_androidapp.domain.utils.PreferenceUtils
 import xyz.tusion.baltseahack_androidapp.presentation.standard.LoadingDialog
 
 class MainActivity2 : AppCompatActivity() {
@@ -28,6 +29,7 @@ class MainActivity2 : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toolbar.title = "BaltSeaHack"
 
+        PreferenceUtils.saveId(225)
 
 //        val fab: FloatingActionButton = findViewById(R.id.fab)
 //        fab.setOnClickListener { view ->

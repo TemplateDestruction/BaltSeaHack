@@ -122,4 +122,15 @@ public final class PreferenceUtils {
     public static boolean isLogout() {
         return preferences.getBoolean(LOG_STATE, true);
     }
+
+    public static void saveId(int id) {
+        preferences
+                .edit()
+                .putInt("id", id)
+                .apply();
+    }
+
+    public static int getId() {
+        return preferences.getInt("id", 0);
+    }
 }

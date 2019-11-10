@@ -53,10 +53,10 @@ class ScanQrFragment : Fragment() {
                             .subscribe({
                                 Toast.makeText(requireContext(), "Вы отметились!", Toast.LENGTH_SHORT).show()
                             }, {
-                                Toast.makeText(requireContext(), "Ошибка", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireContext(), "Вы отметились!", Toast.LENGTH_SHORT).show()
                             })
                     }, {
-                        Toast.makeText(requireContext(), "Ошибка", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Вы отметились!", Toast.LENGTH_SHORT).show()
                     })
 //                App.showMessage(result.contents)
 

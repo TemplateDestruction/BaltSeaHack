@@ -15,7 +15,7 @@
     <fragment
         android:id="@+id/scanQrFragment"
         android:name="xyz.tusion.baltseahack_androidapp.presentation.qr.ScanQrFragment"
-        android:label="ScanQrFragment">
+        android:label="">
         <action
             android:id="@+id/action_scanQrFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
