@@ -27,7 +27,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Скажите друзьям id:"
+        android:text="Скажите участниками id:"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
-        android:text="Покажите друзьям QR-код либо  \nпришлите ссылку на чек"
+        android:text="Покажите QR-код:"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"

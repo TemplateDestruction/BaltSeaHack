@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
+    android:background="@color/col_black"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,12 +19,16 @@
         app:srcCompat="@drawable/ic_qr" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/event_name"
         style="@style/Text.Bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:text="Хакатон Balt Sea Hack"
+        android:maxLines="2"
+        android:ellipsize="end"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -39,7 +44,7 @@
         android:layout_marginTop="24dp"
         android:text="Начало: 8.11.19 9:00"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/event_name" />
 
     <TextView
         android:id="@+id/textView4"
