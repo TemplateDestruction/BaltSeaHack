@@ -11,6 +11,7 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.frag_my_event.*
 import kotlinx.android.synthetic.main.item_visitor.*
 import xyz.tusion.baltseahack_androidapp.R
+import xyz.tusion.baltseahack_androidapp.domain.model.Event
 import xyz.tusion.baltseahack_androidapp.domain.model.Visitor
 import xyz.tusion.baltseahack_androidapp.domain.model.listOfVisitor
 import xyz.tusion.baltseahack_androidapp.presentation.base.BaseFragment
@@ -29,11 +30,12 @@ class MyEventFragment : BaseFragment(R.layout.frag_my_event) {
             val newFragment = QrDialog()
 
             val bundle = Bundle()
-            bundle.putString("userId", "ID_4444194783")
+            bundle.putString("eventId", "ID_4444194783")
 
             newFragment.arguments = bundle
             newFragment.show(ft, "dialog")
         }
+            event_name.text = arguments?.getParcelable<Event>("event")?.name
         initRecyclerView()
     }
 
@@ -41,10 +43,6 @@ class MyEventFragment : BaseFragment(R.layout.frag_my_event) {
         super.onStart()
         adapter.updateItems(listOfVisitor)
         frag_visitors_list_rv.setItemViewCacheSize(listOfVisitor.size)
-    }
-
-    override fun onStop() {
-        super.onStop()
     }
 
     override fun createBinds() {

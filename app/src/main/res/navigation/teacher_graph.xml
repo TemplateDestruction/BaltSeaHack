@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/teacher_graph"
-    app:startDestination="@id/mainTeacherFragment">
+    app:startDestination="@id/myCatalogueFragment">
 
     <fragment
         android:id="@+id/mainTeacherFragment"
@@ -19,5 +19,9 @@
             android:name="visitor"
             app:argType="xyz.tusion.baltseahack_androidapp.domain.model.Visitor" />
     </fragment>
+    <fragment
+        android:id="@+id/myCatalogueFragment"
+        android:name="xyz.tusion.baltseahack_androidapp.presentation.teacher.MyCatalogueFragment"
+        android:label="MyCatalogueFragment" />
 
 </navigation>
