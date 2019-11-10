@@ -35,9 +35,11 @@ class CatalogueFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         messages.addAll(resources.getStringArray(R.array.info))
         fillInItems()
         initRecyclerView()
+
 
     }
 

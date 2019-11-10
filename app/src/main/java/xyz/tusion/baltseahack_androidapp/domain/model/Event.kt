@@ -9,5 +9,6 @@ class Event(
     val name: String,
     val startDate: String,
     val endDate: String,
-    val visitors: List<Visitor>
+    val visitors: List<Visitor>,
+    val description: String
 ) : Parcelable

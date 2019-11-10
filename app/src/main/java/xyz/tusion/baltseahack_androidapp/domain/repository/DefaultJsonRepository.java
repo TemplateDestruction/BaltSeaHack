@@ -23,6 +23,7 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.RequestBody;
 import xyz.tusion.baltseahack_androidapp.domain.api.ServerApiFactory;
 import xyz.tusion.baltseahack_androidapp.domain.model.Club;
+import xyz.tusion.baltseahack_androidapp.domain.model.Event;
 
 public class DefaultJsonRepository implements JsonRepository {
 
@@ -52,6 +53,15 @@ public class DefaultJsonRepository implements JsonRepository {
         return ServerApiFactory
                 .getJsonService()
                 .getClub(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
+    public Observable<List<Event>> getAllEvents() {
+        return ServerApiFactory
+                .getJsonService()
+                .getAllEvents()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

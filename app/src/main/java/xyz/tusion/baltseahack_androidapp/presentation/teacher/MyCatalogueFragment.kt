@@ -120,7 +120,7 @@ class CatalogueItemsListAdapter(
                 }
             }
             containerView.setOnClickListener {
-                onVideoClickAction.accept(Event(catalogueItem.imgId, catalogueItem.message, "8.11.19 9:00", "8.11.19 9:00", emptyList()))
+                onVideoClickAction.accept(Event(catalogueItem.imgId, catalogueItem.message, "8.11.19 9:00", "8.11.19 9:00", emptyList(), ""))
             }
         }
 

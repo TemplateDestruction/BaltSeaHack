@@ -8,13 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.os.bundleOf
-import androidx.navigation.Navigator
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.catalogue_item.view.*
-import kotlinx.android.synthetic.main.club_item.*
 import kotlinx.android.synthetic.main.club_item.view.*
 import kotlinx.android.synthetic.main.search_frag.*
 import xyz.tusion.baltseahack_androidapp.R
@@ -162,7 +159,7 @@ class StringItemsListAdapter(
     inner class CatalogueItemViewHolder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bind(string: String) {
-            containerView.catalogue_item_message.text = string
+            containerView.eventItem_name.text = string
         }
 
 

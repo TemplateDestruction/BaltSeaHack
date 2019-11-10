@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/catalogueFragment">
+    app:startDestination="@id/catalogueFragmentBack">
 
     <fragment
         android:id="@+id/secondFragment"
@@ -56,5 +56,9 @@
         </action>
 
     </fragment>
+    <fragment
+        android:id="@+id/catalogueFragmentBack"
+        android:name="xyz.tusion.baltseahack_androidapp.presentation.main.CatalogueFragmentBack"
+        android:label="" />
 
 </navigation>

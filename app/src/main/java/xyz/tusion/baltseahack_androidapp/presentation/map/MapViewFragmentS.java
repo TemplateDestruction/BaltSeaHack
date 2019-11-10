@@ -240,7 +240,7 @@ public class MapViewFragmentS extends BaseFragment {
     }
 
     private void onPointGot(Club club) {
-        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.logo_blue_normal);
+        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icons48);
         QRmarkerOption = new MarkerOptions()
                 .position(new LatLng(club.getLongtitude(), club.getLatitude()))
                 .title(club.getName())
@@ -297,7 +297,7 @@ public class MapViewFragmentS extends BaseFragment {
 
     private void onSuccess(ArrayList<Club> clubs) {
         this.clubsList = clubs;
-        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.logo_blue_normal);
+        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icons48);
         Log.e("SUCCESS", "onSuccess:");
         String title;
         Marker marker;
@@ -409,7 +409,7 @@ public class MapViewFragmentS extends BaseFragment {
 //                            // Запускаем нужную Activity
 //                            startActivity(intent);
                             // Create a Uri from an intent string. Use the result to create an Intent.
-                            Uri gmmIntentUri = Uri.parse("google.navigation:q=" + club.getLongtitude() + "," + club.getLatitude()+ "," + 59.7620964 + ","+ 30.3551396);
+                            Uri gmmIntentUri = Uri.parse("google.navigation:q=" + club.getLongtitude() + "," + club.getLatitude());
                             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                             mapIntent.setPackage("com.google.android.apps.maps");
                             startActivity(mapIntent);

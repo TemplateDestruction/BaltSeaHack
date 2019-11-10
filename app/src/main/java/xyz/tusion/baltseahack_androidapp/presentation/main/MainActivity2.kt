@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import xyz.tusion.baltseahack_androidapp.R
 import xyz.tusion.baltseahack_androidapp.domain.repository.RepositoryProvider
+import xyz.tusion.baltseahack_androidapp.presentation.standard.LoadingDialog
 
 class MainActivity2 : AppCompatActivity() {
 
@@ -37,9 +38,10 @@ class MainActivity2 : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.catalogueFragment, R.id.mapFragment, R.id.calendarFragment,
+                R.id.catalogueFragmentBack, R.id.mapFragment, R.id.calendarFragment,
                 R.id.scanQrFragment
             ),
             drawerLayout
