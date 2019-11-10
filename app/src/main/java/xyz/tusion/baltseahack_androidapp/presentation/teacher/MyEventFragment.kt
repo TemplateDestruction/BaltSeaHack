@@ -17,8 +17,15 @@ import xyz.tusion.baltseahack_androidapp.domain.model.listOfVisitor
 import xyz.tusion.baltseahack_androidapp.presentation.base.BaseFragment
 import xyz.tusion.baltseahack_androidapp.presentation.base.binding.ViewAction
 import xyz.tusion.baltseahack_androidapp.presentation.qr.QrDialog
+import xyz.tusion.baltseahack_androidapp.presentation.teacher.MyEventFragment.Companion.amountOfUsers
 
 class MyEventFragment : BaseFragment(R.layout.frag_my_event) {
+
+    companion object {
+        public var users: Int = 2
+
+        public var amountOfUsers = -1
+    }
 
     private lateinit var adapter: VisitorListAdapter
     val videoClickAction = ViewAction<Visitor>()
@@ -30,7 +37,7 @@ class MyEventFragment : BaseFragment(R.layout.frag_my_event) {
             val newFragment = QrDialog()
 
             val bundle = Bundle()
-            bundle.putString("eventId", "10")
+            bundle.putString("eventId", "262")
 
             newFragment.arguments = bundle
             newFragment.show(ft, "dialog")
@@ -48,7 +55,7 @@ class MyEventFragment : BaseFragment(R.layout.frag_my_event) {
 
     override fun onStart() {
         super.onStart()
-        adapter.updateItems(listOfVisitor)
+        adapter.updateItems(listOfVisitor.subList(listOfVisitor.size-users, listOfVisitor.size))
         frag_visitors_list_rv.setItemViewCacheSize(listOfVisitor.size)
     }
 
@@ -58,6 +65,9 @@ class MyEventFragment : BaseFragment(R.layout.frag_my_event) {
             videoClickAction.subscribe {
                 val bundle = bundleOf("visitor" to it)
                 navController.navigate(R.id.visitorDetailsFragment, bundle)
+            },
+            QrDialog.timeOut.subscribe {
+                adapter.updateItems(listOfVisitor.subList(listOfVisitor.size-users, listOfVisitor.size))
             }
         )
     }
@@ -75,6 +85,7 @@ class VisitorListAdapter(
 ) : RecyclerView.Adapter<VisitorListAdapter.VideoItemViewHolder>() {
 
     fun updateItems(newItems: List<Visitor>) {
+        amountOfUsers = newItems.size
         videoList.apply {
             clear()
             addAll(newItems)
