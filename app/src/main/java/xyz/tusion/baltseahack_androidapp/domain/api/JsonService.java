@@ -14,6 +14,8 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import xyz.tusion.baltseahack_androidapp.domain.model.Club;
+import xyz.tusion.baltseahack_androidapp.domain.model.Counting;
+import xyz.tusion.baltseahack_androidapp.domain.model.Event;
 
 public interface JsonService {
     @POST("register")
@@ -30,5 +32,13 @@ public interface JsonService {
 
     @GET("event/{eventId}/meet/{userId}")
     Observable<Completable> meetMeeting(@Path("eventId") String eventid, @Path("userId") String userId);
+
+    @GET("event/all")
+    Observable<List<Event>> getAllEvents();
+
+    @GET("event/{eventId}/count")
+    Observable<Event> getCountByEventId();
+
+
 
 }
